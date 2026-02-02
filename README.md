@@ -21,6 +21,7 @@ The project is setup using Vite and uses React and TypeScript.
 To start development:
 
 - Make a clone of the repository on your local machine using `git`
+- Create an environment file and add the variables which will be sent to you separately
 - Make sure you have node v20 or higher installed
 - Run `npm install` to install all dependencies
 - Run `npm run dev` to start the local development server
