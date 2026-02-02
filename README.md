@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# Technical Test Sentigrate - Full Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Goal
 
-Currently, two official plugins are available:
+The goal of this technical test is to create a "Strava 2025 Rewind" page. The page should show the following statistics:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Total time spent doing sports (`movingDuration`)
+- Most practiced sport (most in amount of time)
+- Time spent on each sport (both time spent on this sport & the number of activities for this sport)
 
-## React Compiler
+All data can be rounded to the nearest integer.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The image below shows an example mockup of what the page should look like.
 
-## Expanding the ESLint configuration
+![alt text](./example.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The project is setup using Vite and uses React and TypeScript.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To start development:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Make a clone of the repository on your local machine using `git`
+- Make sure you have node v20 or higher installed
+- Run `npm install` to install all dependencies
+- Run `npm run dev` to start the local development server
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## What's already provided?
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- The database is stored on Supabase, an online platform that provides a Postgres database with an API or client. The connection to Supabase is already setup in the project. To get the data, you can use the provided `getActivities` function located in `src/services/garmin-data.ts`.
+- The `Activity` data structure, as it will be returned from Supabase, is defined in `src/utils/types.ts`.
+- Some basic styles are already provided in `src/index.css`.
+  - `stats-row`: A flexbox container for each row of statistics.
+  - `stats-card`: The card style for each statistic.
+  - `stats-table`: The table style for displaying time spent on each sport.

@@ -35,7 +35,7 @@ body {
   flex-direction: row;
 }
 
-.stats-box {
+.stats-card {
   display: flex;
   flex-direction: column;
   border: 1px solid #fff;
@@ -44,7 +44,7 @@ body {
   margin: 16px;
 }
 
-.stats-box span {
+.stats-card span {
   font-size: 24px;
   font-weight: bold;
 }
